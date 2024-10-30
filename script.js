@@ -49,12 +49,12 @@ function mostrarMenu() {
 function calcularSalario(horasTrabajadas) {
     let salario = 0;
 
-    if (horasTrabajadas <= 40) {
-        salario = horasTrabajadas * 20000;
-    } else if (horasTrabajadas <= 50) {
-        salario = (40 * 20000) + ((horasTrabajadas - 40) * 25000);
+    if (horasTrabajadas < 40) {  // Si el empleado ha trabajado menos de 40 horas
+        salario = horasTrabajadas * 20000;  // 20.000 por hora
+    } else if (horasTrabajadas <= 50) {   // Si el empleado ha trabajado entre 40 y 50 horas
+        salario = (40 * 20000) + ((horasTrabajadas - 40) * 25000);   // 20.000 por hora por las primeras 40 horas y 25.000
     } else {
-        salario = (40 * 20000) + (10 * 25000) + ((horasTrabajadas - 50) * 30000);
+        salario = (40 * 20000) + (10 * 25000) + ((horasTrabajadas - 50) * 30000);   // 20.000 por hora por las primeras 40 horas, 25.000
     }
 
     return salario;
