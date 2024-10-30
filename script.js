@@ -45,3 +45,28 @@ function mostrarMenu() {
         }
     } while(opcion !== '3');
 }
+
+function calcularSalario(horasTrabajadas) {
+    let salario = 0;
+
+    if (horasTrabajadas <= 40) {
+        salario = horasTrabajadas * 20000;
+    } else if (horasTrabajadas <= 50) {
+        salario = (40 * 20000) + ((horasTrabajadas - 40) * 25000);
+    } else {
+        salario = (40 * 20000) + (10 * 25000) + ((horasTrabajadas - 50) * 30000);
+    }
+
+    return salario;
+}
+
+let continuar = true;
+
+while (continuar) {
+    let horas = parseInt(prompt("Ingrese las horas trabajadas por el empleado:"));
+    let salario = calcularSalario(horas);
+    alert(`El salario del empleado es: $${salario}`);
+
+    let respuesta = prompt("¿Desea calcular el salario de otro empleado? (sí/no)");
+    continuar = respuesta.toLowerCase() === 'sí';
+}
