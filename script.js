@@ -2,12 +2,11 @@ const usuario = 'admin';
 const contrasena = '1234';
 let intentos = 0;
 const maxIntentos = 3;
+let autenticado  = false;   
 
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+while (intentos < maxIntentos && !autenticado) {    
+    const username = prompt("Ingrese el usuario:");
+    const password =  prompt("Ingrese la contraseña:");
 
     if (username === usuario && password === contrasena) {
         alert('Inicio de sesión exitoso');
@@ -24,7 +23,11 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
             alert('Nombre de usuario o contraseña incorrectos. Intento ' + intentos + ' de ' + maxIntentos);
         }
     }
-});
+}
+
+if (!autenticado) {
+    alert('Has excedido el número de intentos permitidos.');
+}
 
 function mostrarMenu() {
     let opcion;
