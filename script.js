@@ -32,10 +32,11 @@ if (!autenticado) {
 function mostrarMenu() {
     let opcion;
     do {
-        opcion = prompt("Menú:\n1. Opción 1\n2. Opción 2\n3. Salir\nElige una opción:");
+        opcion = prompt("Menú:\n1. Opción 1 -Calcular Salario Trabajador \n2. Opción 2\n3. Salir\nElige una opción:");
         switch(opcion) {
             case '1':
-                alert("Has elegido la Opción 1");
+                /* alert("Has elegido la Opción 1"); */
+                calcularSalarioVariosEmpleados();
                 break;
             case '2':
                 alert("Has elegido la Opción 2");
@@ -63,13 +64,15 @@ function calcularSalario(horasTrabajadas) {
     return salario;
 }
 
-let continuar = true;
+function calcularSalarioVariosEmpleados() {
+    let continuar = true;
 
-while (continuar) {
-    let horas = parseInt(prompt("Ingrese las horas trabajadas por el empleado:"));
-    let salario = calcularSalario(horas);
-    alert(`El salario del empleado es: $${salario}`);
+    while (continuar) {
+        let horas = parseInt(prompt("Ingrese las horas trabajadas por el empleado:"));
+        let salario = calcularSalario(horas);
+        alert(`El salario del empleado es: $${salario}`);
 
-    let respuesta = prompt("¿Desea calcular el salario de otro empleado? (sí/no)");
-    continuar = respuesta.toLowerCase() === 'sí';
+        let respuesta = prompt("¿Desea calcular el salario de otro empleado? (sí/no)");
+        continuar = respuesta.toLowerCase() === 'sí';
+    }
 }
